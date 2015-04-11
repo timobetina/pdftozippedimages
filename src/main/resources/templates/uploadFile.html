@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+	<h1>Form</h1>
+
+	<form method="POST" enctype="multipart/form-data" action="/uploadFile">
+		File to upload: <input type="file" name="file"/>
+		<br />
+		Upload repeat: <input type="text" name="repeat"/>
+		<br />
+		<input type="submit" value="Upload"/>
+	</form>
+
+</body>
+</html>

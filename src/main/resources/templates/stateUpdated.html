@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script>
+		function beginrefresh() {
+			setInterval("refresh()", 1000)
+		}
+		function refresh() {
+			method = "post";
+
+			var form = document.createElement("form");
+			form.setAttribute("method", method);
+			form.setAttribute("action", "/stateUpdated");
+
+			var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("name", "refresh");
+			form.appendChild(hiddenField);
+
+			form.submit();
+		}
+		window.onload = beginrefresh;
+	</script>
+</head>
+<body>
+	<h1>Tasks state</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>State</th>
+		</tr>
+		<tr th:each="task : ${taskList}">
+			<td th:text="${task.id}"></td>
+			<td th:text="${task.state}">2.41</td>
+		</tr>
+	</table>
+</body>
+</html>
